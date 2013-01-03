@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Academic Software - S.C.B.
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          %a.brand{:href => "#"} AS-SCB
+          %ul.nav
+            %li.active
+              = link_to 'Home', root_path
+            %li
+              %a{:href => "#"} Algo
+
+      - flash.each do |type, message|
+        %div{class: "alert #{flash_class type}"}
+          %button.close{"data-dismiss" => "alert"} x
+          = message
+      = yield
