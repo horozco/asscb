@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-gem 'pg', '0.14.1'
+gem 'sqlite3'
+#gem 'pg', '0.14.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -17,6 +18,10 @@ gem 'cancan', '1.6.8'
 gem 'haml-rails', '0.3.5'
 
 gem 'activeadmin', '0.5.1'
+
+gem "paperclip", '3.3.1'
+
+gem "simple_form", '2.0.4'
 
 # NOTE: The following gems contain generators useful in development
 # environment too!

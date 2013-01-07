@@ -5,28 +5,9 @@
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body.home
-    %nav.navbar
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => root_path}
-            %img{:alt => "ASSCB", :height => "46", :src => "/Sofacad.png", :width => "86"}/
-          .nav-collapse
-            %ul.nav.actions
-              %li
-                %a{"data-link" => "modal", "data-target" => "#login-modal", :href => root_path} Estudiante
-              %li
-                %a{"data-link" => "modal", "data-target" => "#signup-modal", :href => root_path} Docente
-            %ul.nav
-              %li
-                %a{:href => "/discover/"} Discover
-              %li
-                %a{:href => "/about/"} About us
-              %li
-                %a{:href => "http://blog.kippt.com"} Blog
-          / /.nav-collapse
-      = yield
+  %body
+    - flash.each do |type, message|
+      %div{class: "alert #{flash_class type}"}
+        %button.close{"data-dismiss" => "alert"} x
+        = message
+    = yield
